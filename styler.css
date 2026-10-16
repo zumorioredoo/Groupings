@@ -1,0 +1,891 @@
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    overflow: hidden;
+    scrollbar-width: none;
+    color: #342820;
+    background-color: #fffdf9;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    user-select: none;
+}
+
+.site-header .logo,
+.site-header .logo:hover,
+.site-header .logo:focus {
+    color: #342820;
+    text-decoration: none;
+}
+
+header span {
+    font-family: "Monsieur La Doulaise", cursive;
+    font-weight: 600;
+    font-size: 25px;
+    font-style: normal;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 12px clamp(20px, 6vw, 80px);
+    background-color: #fffdf9;
+    border-bottom: 1px solid #eee7de;
+}
+
+.site-header nav ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 3vw, 36px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 3vw, 36px);
+}
+
+.site-header nav a {
+    display: block;
+    padding: 8px 0;
+    color: #62564c;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 160ms ease;
+}
+
+.site-header nav a:hover,
+.site-header nav a[aria-current="highlight"] {
+    color: #8a5738;
+}
+
+.site-header nav a[aria-current="highlight"] {
+    font-weight: 600;
+}
+
+@media (max-width: 520px) {
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding-block: 12px;
+    }
+
+    .site-header nav {
+        width: 100%;
+    }
+
+    .header-actions {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .header-actions nav {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .site-header nav ul {
+        justify-content: space-between;
+        gap: 12px;
+    }
+}
+
+main {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Index page */
+.mochara {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: 2rem;
+    background-color: #f5f0e8;
+    text-align: center;
+    user-select: none;
+}
+
+.mochara-cta {
+    padding: 0.7rem 1.35rem;
+    border: 1px solid #8a5738;
+    border-radius: 999px;
+    color: #fffdf9;
+    background: #8a5738;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.mochara-cta:hover {
+    background: #70452d;
+    transform: translateY(-2px);
+}
+
+.mochara h1 span {
+    font-family: "Monsieur La Doulaise", cursive;
+    font-weight: 600;
+    font-size: 40px;
+    font-style: normal;
+    user-select: none;
+}
+
+.mochara a {
+    color: rgb(48, 48, 255);
+    text-decoration: none;
+}
+
+.mochara a:hover {
+    color: rgb(180, 160, 252);
+}
+
+.story-panel {
+    position: fixed;
+    z-index: 20;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: min(82vh, 700px);
+    height: min(82dvh, 700px);
+    padding: clamp(1.25rem, 3vw, 2.5rem) clamp(1.5rem, 8vw, 8rem) 1.25rem;
+    overflow: hidden;
+    border-radius: 28px 28px 0 0;
+    color: #342820;
+    background: #fffdf9;
+    box-shadow: 0 -18px 60px rgb(52 40 32 / 18%);
+    opacity: 0;
+    transform: translateY(105%);
+    visibility: hidden;
+    transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1), opacity 350ms ease,
+        visibility 650ms;
+}
+
+.story-panel.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.story-panel-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.story-eyebrow {
+    margin: 0 0 0.35rem;
+    color: #8a5738;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.story-panel h2 {
+    margin: 0;
+    font-family: "Monsieur La Doulaise", cursive;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.story-close {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 auto;
+    border: 1px solid #eee7de;
+    border-radius: 50%;
+    color: #342820;
+    background: transparent;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.story-content {
+    flex: 1;
+    min-height: 0;
+    column-count: 2;
+    column-gap: clamp(1.5rem, 5vw, 5rem);
+    line-height: 1.55;
+}
+
+.story-content p {
+    margin: 0 0 0.8rem;
+    break-inside: avoid;
+}
+
+.story-signoff {
+    color: #70452d;
+    font-weight: 700;
+}
+
+.story-close-link {
+    align-self: flex-start;
+    padding: 0.4rem 0;
+    border: 0;
+    color: #8a5738;
+    background: transparent;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mochara-cta:focus-visible,
+.story-close:focus-visible,
+.story-close-link:focus-visible {
+    outline: 3px solid #c18a5d;
+    outline-offset: 3px;
+}
+
+@media (max-width: 650px) {
+    .story-panel {
+        height: 90vh;
+        height: 90dvh;
+        padding: 1.25rem 1.4rem 1rem;
+    }
+
+    .story-content {
+        column-count: 1;
+        font-size: clamp(0.72rem, 2.2vw, 0.86rem);
+        line-height: 1.38;
+    }
+
+    .story-content p {
+        margin-bottom: 0.55rem;
+    }
+}
+
+@media (max-height: 700px) {
+    .story-panel {
+        height: 94vh;
+        height: 94dvh;
+        padding-top: 0.8rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .story-panel-heading {
+        margin-bottom: 0.5rem;
+    }
+
+    .story-content {
+        font-size: 0.76rem;
+        line-height: 1.25;
+    }
+
+    .story-content p {
+        margin-bottom: 0.35rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Product page */
+.product-main {
+    overflow-y: auto;
+    background: #f5f0e8;
+    scrollbar-width: thin;
+}
+
+.product-catalog {
+    width: min(1120px, 100%);
+    margin-inline: auto;
+    padding: clamp(1.75rem, 5vw, 4rem) clamp(1.25rem, 5vw, 3.5rem);
+}
+
+.catalog-heading {
+    margin-bottom: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.catalog-eyebrow,
+.product-roast {
+    margin: 0 0 0.55rem;
+    color: #8a5738;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.catalog-heading h1 {
+    margin: 0;
+    font-family: "Monsieur La Doulaise", cursive;
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    font-weight: 600;
+}
+
+.catalog-heading>p:last-child {
+    margin: 0.3rem 0 0;
+    color: #62564c;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.product-card {
+    overflow: hidden;
+    border: 1px solid #e7ddd1;
+    background: #fffdf9;
+}
+
+.product-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #e8ddcf;
+}
+
+.product-info {
+    padding: 1.1rem;
+}
+
+.product-roast {
+    margin-bottom: 0.4rem;
+    font-size: 0.64rem;
+}
+
+.product-info h2 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.product-notes {
+    min-height: 2.5em;
+    margin: 0.5rem 0 1rem;
+    color: #75685e;
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+.product-buy-row,
+.cart-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.product-price {
+    font-weight: 700;
+}
+
+.add-to-cart,
+.cart-trigger {
+    min-height: 2.5rem;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid #8a5738;
+    color: #fffdf9;
+    background: #8a5738;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 160ms ease;
+}
+
+.add-to-cart:hover,
+.cart-trigger:hover {
+    background: #70452d;
+}
+
+.cart-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex: 0 0 auto;
+}
+
+.cart-count {
+    display: inline-grid;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    place-items: center;
+    border-radius: 50%;
+    color: #342820;
+    background: #fffdf9;
+    font-size: 0.75rem;
+}
+
+.site-footer {
+    padding: 0.6rem 1.25rem;
+    color: #75685e;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.cart-dialog {
+    display: none;
+    width: min(480px, calc(100% - 1.5rem));
+    max-width: 100%;
+    max-height: 100vh;
+    max-height: 100dvh;
+    height: min(680px, 100vh);
+    height: min(680px, 100dvh);
+    flex-direction: column;
+    gap: 1rem;
+    padding: clamp(1.1rem, 4vw, 1.75rem);
+    overflow: hidden;
+    border: 1px solid #e7ddd1;
+    color: #342820;
+    background: #fffdf9;
+}
+
+.cart-dialog[open] {
+    display: flex;
+}
+
+.cart-dialog::backdrop {
+    background: rgb(34 26 20 / 48%);
+}
+
+.cart-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.cart-heading h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.cart-close {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 auto;
+    border: 1px solid #e7ddd1;
+    color: #342820;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee7de;
+}
+
+.cart-item h3 {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.cart-item p,
+.cart-summary p {
+    margin: 0.35rem 0 0;
+    color: #75685e;
+    font-size: 0.82rem;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.quantity-button {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #e7ddd1;
+    color: #342820;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.cart-empty {
+    padding: 1.5rem 0;
+    color: #75685e;
+    line-height: 1.5;
+}
+
+.cart-summary {
+    padding-top: 1rem;
+    border-top: 1px solid #e7ddd1;
+}
+
+.cart-total-row strong {
+    font-size: 1.1rem;
+}
+
+.cart-close:focus-visible,
+.quantity-button:focus-visible,
+.cart-trigger:focus-visible,
+.add-to-cart:focus-visible {
+    outline: 3px solid #c18a5d;
+    outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        display: grid;
+        grid-template-columns: minmax(100px, 34%) 1fr;
+    }
+
+    .product-card img {
+        height: 100%;
+        min-height: 100%;
+        aspect-ratio: auto;
+    }
+
+    .product-info {
+        padding: 0.8rem;
+    }
+
+    .product-info h2 {
+        font-size: 0.98rem;
+    }
+
+    .product-notes {
+        min-height: 0;
+        font-size: 0.78rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Review page */
+.review-main {
+    flex: 1;
+    min-height: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    background: #f5f0e8;
+    scrollbar-width: thin;
+}
+
+.review-page {
+    width: min(1120px, 100%);
+    margin-inline: auto;
+    padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 5vw, 3.5rem);
+}
+
+.review-intro {
+    max-width: 720px;
+    margin-bottom: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.review-eyebrow {
+    margin: 0 0 0.5rem;
+    color: #8a5738;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.review-intro h1 {
+    margin: 0;
+    font-family: "Monsieur La Doulaise", cursive;
+    font-size: 2.75rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.review-intro>p:last-child {
+    margin: 0.6rem 0 0;
+    color: #62564c;
+    line-height: 1.5;
+}
+
+.review-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    align-items: start;
+    gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.review-feed-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #d9cbbd;
+}
+
+.review-feed-heading h2,
+.review-form-panel h2 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.review-feed-heading>span {
+    color: #75685e;
+    font-size: 0.82rem;
+}
+
+.review-entry {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid #d9cbbd;
+}
+
+.review-entry-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.review-entry h3 {
+    margin: 0;
+    font-size: 0.98rem;
+}
+
+.review-entry time {
+    display: block;
+    margin-top: 0.2rem;
+    color: #75685e;
+    font-size: 0.76rem;
+}
+
+.review-stars {
+    flex: 0 0 auto;
+    color: #a7662b;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+}
+
+.review-entry>p {
+    margin: 0.8rem 0 0;
+    color: #51473f;
+    line-height: 1.55;
+}
+
+.review-form-panel {
+    padding: clamp(1.1rem, 3vw, 1.75rem);
+    border: 1px solid #e2d8cd;
+    background: #fffdf9;
+}
+
+.review-form-panel h2 {
+    margin-bottom: 1.2rem;
+}
+
+.review-form-panel form {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.review-form-panel label {
+    margin-top: 0.35rem;
+    color: #51473f;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.review-form-panel input,
+.review-form-panel select,
+.review-form-panel textarea {
+    width: 100%;
+    min-height: 2.7rem;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #d9cbbd;
+    border-radius: 0;
+    color: #342820;
+    background: #fffdf9;
+    font: inherit;
+}
+
+.review-form-panel textarea {
+    min-height: 7rem;
+    resize: vertical;
+}
+
+.review-submit {
+    min-height: 2.7rem;
+    margin-top: 0.5rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid #8a5738;
+    color: #fffdf9;
+    background: #8a5738;
+    font: inherit;
+    cursor: pointer;
+}
+
+.review-submit:hover {
+    background: #70452d;
+}
+
+.review-form-status {
+    min-height: 1.25em;
+    margin: 0;
+    color: #526a42;
+    font-size: 0.82rem;
+}
+
+.review-form-panel input:focus-visible,
+.review-form-panel select:focus-visible,
+.review-form-panel textarea:focus-visible,
+.review-submit:focus-visible {
+    outline: 3px solid #c18a5d;
+    outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+    .review-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .review-intro h1 {
+        font-size: 2.1rem;
+    }
+
+    .review-feed-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Contact page */
+.contact-main {
+    display: grid;
+    flex: 1;
+    place-items: center;
+    min-height: 0;
+    max-height: 100%;
+    padding: 1.5rem;
+    overflow-y: auto;
+    background: #f5f0e8;
+}
+
+.contact-details {
+    width: min(680px, 100%);
+    padding: clamp(1.5rem, 5vw, 3.5rem) 1rem;
+    border-top: 1px solid #d9cbbd;
+    border-bottom: 1px solid #d9cbbd;
+    text-align: center;
+}
+
+.contact-details h1 {
+    margin: 0 0 1.5rem;
+    font-family: "Monsieur La Doulaise", cursive;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.contact-line {
+    margin: 0.85rem 0;
+    color: #51473f;
+    overflow-wrap: anywhere;
+}
+
+.contact-line span {
+    font-weight: 700;
+}
+
+.contact-line a {
+    color: #8a5738;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.contact-thanks {
+    margin: 1.75rem 0 0;
+    color: #75685e;
+}
+
+@media (max-width: 480px) {
+    .contact-details h1 {
+        font-size: 2.6rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+footer {
+    flex: 0 0 auto;
+    padding: 0.55rem 0;
+    text-align: center;
+    color: #342820;
+    user-select: none;
+}

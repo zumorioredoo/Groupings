@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COFFEE SHOP</title>
+    <link rel="stylesheet" href="styler.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">
+            <span>Mochara</span>
+        </a>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" aria-current="highlight">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="review.html">Review</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="mochara">
+            <div>
+                <h1>Welcome to <span class="logo">Mochara</span> Coffee Shop</h1>
+                <p>Experience the finest coffee blends and a cozy atmosphere.</p>
+                <button type="button" class="mochara-cta" id="viewMoreButton" aria-controls="storyPanel"
+                    aria-expanded="false">View More</button>
+            </div>
+        </section>
+    </main>
+    <section class="story-panel" id="storyPanel" aria-labelledby="storyTitle" aria-hidden="true" inert>
+        <div class="story-panel-heading">
+            <div>
+                <p class="story-eyebrow">OUR STORY</p>
+                <h2 id="storyTitle">The Story Behind Mochara Coffee Shop</h2>
+            </div>
+            <button type="button" class="story-close" id="closeStoryButton" aria-label="Close story">×</button>
+        </div>
+        <div class="story-content">
+            <p>Mochara was born from the simple idea that coffee is more than just a drink—it is a way to connect
+                people, create memories, and build friendships.</p>
+
+            <p>The name Mochara combines two meaningful ideas: “mocha,” a beloved coffee flavor known for its rich
+                blend of coffee and chocolate, and “mochara,” which represents a friend or companion. Together, the
+                name reflects our vision of creating a welcoming space where good coffee and genuine friendships
+                come together.</p>
+
+            <p>We believe that every cup of coffee has a story to tell. It can be part of a morning routine, a
+                much-needed break, a heartfelt conversation, a late-night study session, or a simple moment of peace
+                in a busy day. At Mochara, we want every guest to feel comfortable, valued, and connected—whether
+                they come alone to enjoy their coffee or bring friends to share a moment.</p>
+
+            <p>More than just a coffee shop, Mochara is a place where strangers can become friends, conversations
+                can turn into cherished memories, and every visit feels like coming back to a familiar companion.</p>
+
+            <p>With every cup we serve, we hope to share not only the warmth and comfort of coffee but also the joy
+                of friendship.</p>
+            <p class="story-signoff">Mochara — Where Coffee Meets Friendship.</p>
+        </div>
+        <button type="button" class="story-close-link" id="closeStoryLink">View Less</button>
+    </section>
+    <footer>
+        est. 2026
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

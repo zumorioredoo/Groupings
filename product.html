@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COFFEE SHOP</title>
+    <link rel="stylesheet" href="styler.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">
+            <span>Mochara</span>
+        </a>
+        <div class="header-actions">
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html" aria-current="highlight">Product</a></li>
+                    <li><a href="review.html">Review</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="cart-trigger" id="openCartButton" type="button" aria-haspopup="dialog"
+                aria-controls="cartDialog">Cart <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+            </button>
+        </div>
+    </header>
+    <main class="product-main">
+        <section class="product-catalog" aria-labelledby="catalogTitle">
+            <div class="catalog-heading">
+                <p class="catalog-eyebrow">FRESHLY ROASTED · ALWAYS FRIENDS</p>
+                <h1 id="catalogTitle">Coffee for your daily ritual.</h1>
+                <p>Whole beans, roasted in small batches and ready for your next cup.</p>
+            </div>
+            <div class="product-grid">
+                <article class="product-card" data-product-id="house-blend" data-name="Mochara House Blend"
+                    data-price="16">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=85"
+                        alt="Freshly roasted coffee beans" loading="lazy">
+                    <div class="product-info">
+                        <p class="product-roast">MEDIUM ROAST · 12 OZ</p>
+                        <h2>Mochara House Blend</h2>
+                        <p class="product-notes">Chocolate · toasted almond · brown sugar</p>
+                        <div class="product-buy-row"><span class="product-price">$16</span><button class="add-to-cart"
+                                type="button">Add to cart</button></div>
+                    </div>
+                </article>
+                <article class="product-card" data-product-id="ethiopia" data-name="Ethiopia Yirgacheffe"
+                    data-price="19">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=85"
+                        alt="Coffee being brewed for a fresh cup" loading="lazy">
+                    <div class="product-info">
+                        <p class="product-roast">LIGHT ROAST · 12 OZ</p>
+                        <h2>Ethiopia Yirgacheffe</h2>
+                        <p class="product-notes">Blueberry · jasmine · lemon</p>
+                        <div class="product-buy-row"><span class="product-price">$19</span><button class="add-to-cart"
+                                type="button">Add to cart</button></div>
+                    </div>
+                </article>
+                <article class="product-card" data-product-id="sumatra" data-name="Sumatra Dark Roast" data-price="18">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85"
+                        alt="A freshly poured cup of coffee" loading="lazy">
+                    <div class="product-info">
+                        <p class="product-roast">DARK ROAST · 12 OZ</p>
+                        <h2>Sumatra Dark Roast</h2>
+                        <p class="product-notes">Molasses · cedar · dark chocolate</p>
+                        <div class="product-buy-row"><span class="product-price">$18</span><button class="add-to-cart"
+                                type="button">Add to cart</button></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">est. 2026</footer>
+    <dialog class="cart-dialog" id="cartDialog" aria-labelledby="cartTitle">
+        <div class="cart-heading">
+            <div>
+                <p class="catalog-eyebrow">YOUR COFFEE</p>
+                <h2 id="cartTitle">Shopping cart</h2>
+            </div>
+            <button class="cart-close" id="closeCartButton" type="button" aria-label="Close cart">×</button>
+        </div>
+        <div class="cart-items" id="cartItems" aria-live="polite"></div>
+        <div class="cart-summary">
+            <div class="cart-total-row"><span>Subtotal</span><strong id="cartTotal">$0</strong></div>
+            <p>Shipping calculated at checkout.</p>
+        </div>
+    </dialog>
+    <script src="product.js" defer></script>
+</body>
+
+</html>

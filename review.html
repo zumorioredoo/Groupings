@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews | Mochara Coffee Shop</title>
+    <link rel="stylesheet" href="styler.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo"><span>Mochara</span></a>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="review.html" aria-current="highlight">Review</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="review-main">
+        <section class="review-page" aria-labelledby="reviewTitle">
+            <div class="review-intro">
+                <p class="review-eyebrow">NOTES FROM OUR TABLE</p>
+                <h1 id="reviewTitle">A good cup brings us together.</h1>
+                <p>Read what the Mochara community has to say, then leave a note of your own.</p>
+            </div>
+            <div class="review-layout">
+                <section class="review-feed" aria-labelledby="customerReviewsTitle">
+                    <div class="review-feed-heading">
+                        <h2 id="customerReviewsTitle">Customer reviews</h2>
+                        <span>From the community</span>
+                    </div>
+                    <div class="review-list" id="reviewList" aria-live="polite">
+                        <article class="review-entry">
+                            <div class="review-entry-heading">
+                                <div>
+                                    <h3>Jaypee L.</h3><time datetime="2026-09-18">Sep 18, 2026</time>
+                                </div>
+                                <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+                            </div>
+                            <p>The house blend has become part of my morning. Smooth, rich, and never bitter.</p>
+                        </article>
+                        <article class="review-entry">
+                            <div class="review-entry-heading">
+                                <div>
+                                    <h3>Daron L.</h3><time datetime="2026-09-04">Sep 4, 2026</time>
+                                </div>
+                                <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+                            </div>
+                            <p>Lovely beans and a genuinely welcoming place. The Ethiopia roast is bright and delicious.
+                            </p>
+                        </article>
+                        <article class="review-entry">
+                            <div class="review-entry-heading">
+                                <div>
+                                    <h3>Dado</h3><time datetime="2026-08-22">Aug 22, 2026</time>
+                                </div>
+                                <span class="review-stars" aria-label="4 out of 5 stars">★★★★☆</span>
+                            </div>
+                            <p>Great flavor and the beans arrived fresh. Sumatra makes an excellent afternoon cup.</p>
+                        </article>
+                    </div>
+                </section>
+                <section class="review-form-panel" aria-labelledby="leaveReviewTitle">
+                    <p class="review-eyebrow">YOUR TURN</p>
+                    <h2 id="leaveReviewTitle">Leave a review</h2>
+                    <form id="reviewForm">
+                        <label for="reviewName">Your name</label>
+                        <input id="reviewName" name="name" type="text" maxlength="50" autocomplete="name" required>
+
+                        <label for="reviewRating">Your rating</label>
+                        <select id="reviewRating" name="rating" required>
+                            <option value="5">5 stars · Loved it</option>
+                            <option value="4">4 stars · Really good</option>
+                            <option value="3">3 stars · It was good</option>
+                            <option value="2">2 stars · Could be better</option>
+                            <option value="1">1 star · Not for me</option>
+                        </select>
+
+                        <label for="reviewText">Your review</label>
+                        <textarea id="reviewText" name="review" rows="4" maxlength="500" required></textarea>
+                        <button class="review-submit" type="submit">Post review</button>
+                        <p class="review-form-status" id="reviewFormStatus" aria-live="polite"></p>
+                    </form>
+                </section>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">est. 2026</footer>
+    <script src="review.js" defer></script>
+</body>
+
+</html>
